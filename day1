@@ -1,0 +1,47 @@
+// 1. GCD
+// import java.util.Scanner;
+
+// public class GCD {
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+
+//         int a = sc.nextInt();
+//         int b = sc.nextInt();
+
+//         while (b != 0) {
+//             int temp = b;
+//             b = a % b;
+//             a = temp;
+//         }
+
+//         System.out.println("GCD = " + a);
+//     }
+// }
+
+
+// 2. SmallestExactDivisor
+
+// import java.util.Scanner;
+
+// class SmallestExactDivisor {
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+
+//         int n = sc.nextInt();
+//          boolean a = false;
+//         for (int i = 2; i < n; i++) {
+//             if (n % i == 0) {
+//                 System.out.println(i);
+//                 a= true;
+//               break;
+             
+//             }
+           
+//         }
+//      if(!a){
+//         System.out.println(1);
+//      }
+//     }
+// }
+
+
