@@ -1,0 +1,135 @@
+Agar a, b, aur c triangle ki sides hain, to sabse pehle check karte hain ki triangle ban sakta hai ya nahi.
+
+Triangle Condition
+
+Kisi bhi triangle ke liye:
+
+a + b > c
+a + c > b
+b + c > a
+
+Agar teeno conditions true hain, to triangle valid hai.
+
+Java Program: Check Triangle Validity
+import java.util.Scanner;
+
+class Triangle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        if (a + b > c && a + c > b && b + c > a) {
+            System.out.println("Valid Triangle");
+        } else {
+            System.out.println("Not a Triangle");
+        }
+    }
+}
+Example 1
+
+Input:
+
+3 4 5
+
+Output:
+
+Valid Triangle
+  Example 2
+
+Input:
+
+1 2 5
+
+Output:
+
+Not a Triangle
+
+  Example 2
+  import java.util.Scanner;
+
+class TriangleType {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        if (a + b > c && a + c > b && b + c > a) {
+
+            if (a == b && b == c) {
+                System.out.println("Equilateral Triangle");
+            }
+            else if (a == b || b == c || a == c) {
+                System.out.println("Isosceles Triangle");
+            }
+            else {
+                System.out.println("Scalene Triangle");
+            }
+
+        } else {
+            System.out.println("Not a Triangle");
+        }
+    }
+}
+
+Method: Area Formula
+
+Triangle ABC ka area nikalo.
+
+Area(ABC)=  1/2(x1(y2-y3) + x2(y3 - y1) + x3(y1 - y2) )
+
+Phir:
+
+Area1 = Area(PBC)
+Area2 = Area(APC)
+Area3 = Area(ABP)
+
+
+import java.util.Scanner;
+
+public class PointInsideTriangle {
+
+    static double area(int x1, int y1,
+                       int x2, int y2,
+                       int x3, int y3) {
+
+        return Math.abs(
+                x1 * (y2 - y3) +
+                x2 * (y3 - y1) +
+                x3 * (y1 - y2)
+        ) / 2.0;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int x1 = sc.nextInt();
+        int y1 = sc.nextInt();
+
+        int x2 = sc.nextInt();
+        int y2 = sc.nextInt();
+
+        int x3 = sc.nextInt();
+        int y3 = sc.nextInt();
+
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+
+        double A  = area(x1,y1,x2,y2,x3,y3);
+        double A1 = area(x,y,x2,y2,x3,y3);
+        double A2 = area(x1,y1,x,y,x3,y3);
+        double A3 = area(x1,y1,x2,y2,x,y);
+
+        if (A == A1 + A2 + A3)
+            System.out.println("Inside");
+        else
+            System.out.println("Outside");
+    }
+}
+
+  
