@@ -1,0 +1,156 @@
+Iterable
+   |
+Collection
+   |
+------------------------------------------------
+|               |               |              |
+List            Set             Queue          Deque
+|               |               |
+ArrayList       HashSet         PriorityQueue
+LinkedList      LinkedHashSet
+Vector          TreeSet
+
+Map (Separate Interface)
+|
+-----------------------------------------
+|               |                      |
+HashMap      LinkedHashMap          TreeMap
+
+
+-----------------------------------------------------
+| Method     | Description         |
+| ---------- | ------------------- |
+| add()      | Add element         |
+| remove()   | Remove element      |
+| contains() | Check element       |
+| size()     | Total elements      |
+| clear()    | Remove all elements |
+| isEmpty()  | Check empty         |
+| get()      | Get element         |
+| put()      | Add key-value pair  |
+-------------------------------------------------------------
+
+1. List Interface
+Maintains insertion order
+Allows duplicate elements
+ArrayList
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        ArrayList<String> list = new ArrayList<>();
+
+        list.add("Java");
+        list.add("Python");
+        list.add("Java");
+
+        System.out.println(list);
+    }
+}
+
+Output
+
+[Java, Python, Java]
+LinkedList
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        LinkedList<Integer> list = new LinkedList<>();
+
+        list.add(10);
+        list.add(20);
+        list.add(30);
+
+        System.out.println(list);
+    }
+}
+2. Set Interface
+No duplicates allowed
+HashSet
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashSet<Integer> set = new HashSet<>();
+
+        set.add(10);
+        set.add(20);
+        set.add(10);
+
+        System.out.println(set);
+    }
+}
+
+Output
+
+[10, 20]
+TreeSet
+Sorted order
+No duplicates
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        TreeSet<Integer> set = new TreeSet<>();
+
+        set.add(30);
+        set.add(10);
+        set.add(20);
+
+        System.out.println(set);
+    }
+}
+
+Output
+
+[10, 20, 30]
+
+
+3. Queue Interface
+
+PriorityQueue
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        pq.add(30);
+        pq.add(10);
+        pq.add(20);
+
+        System.out.println(pq.poll());
+    }
+}
+
+Output
+
+10
+4. Map Interface
+
+Stores data in key-value pairs.
+
+HashMap
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashMap<Integer,String> map = new HashMap<>();
+
+        map.put(101,"Gautam");
+        map.put(102,"Rahul");
+
+        System.out.println(map);
+    }
+}
+
+Output
+
+{101=Gautam, 102=Rahul}
