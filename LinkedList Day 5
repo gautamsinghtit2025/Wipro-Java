@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        LinkedList<String> list = new LinkedList<>();
+
+        // add()
+        list.add("Java");
+        list.add("Python");
+        list.add("C++");
+
+        System.out.println("After add(): " + list);
+
+        // get()
+        System.out.println("get(1): " + list.get(1));
+
+        // contains()
+        System.out.println("contains(Java): " + list.contains("Java"));
+
+        // size()
+        System.out.println("size(): " + list.size());
+
+        // remove()
+        list.remove("Python");
+        System.out.println("After remove(): " + list);
+
+        // isEmpty()
+        System.out.println("isEmpty(): " + list.isEmpty());
+
+        // clear()
+        list.clear();
+        System.out.println("After clear(): " + list);
+
+        System.out.println("isEmpty(): " + list.isEmpty());
+    }
+}
