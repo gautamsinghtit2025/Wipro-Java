@@ -1,0 +1,52 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // ArrayList
+        ArrayList<String> list = new ArrayList<>();
+
+        // add()
+        list.add("Java");
+        list.add("Python");
+        list.add("C++");
+
+        System.out.println("After add(): " + list);
+
+        // get()
+        System.out.println("get(1): " + list.get(1));
+
+        // contains()
+        System.out.println("contains(\"Java\"): " + list.contains("Java"));
+
+        // size()
+        System.out.println("size(): " + list.size());
+
+        // remove()
+        list.remove("Python");
+        System.out.println("After remove(): " + list);
+
+        // isEmpty()
+        System.out.println("isEmpty(): " + list.isEmpty());
+
+        // clear()
+        list.clear();
+        System.out.println("After clear(): " + list);
+
+        System.out.println("isEmpty(): " + list.isEmpty());
+
+
+        // HashMap Example for put()
+        HashMap<Integer, String> map = new HashMap<>();
+
+        // put()
+        map.put(101, "Gautam");
+        map.put(102, "Rahul");
+        map.put(103, "Amit");
+
+        System.out.println("\nHashMap:");
+        System.out.println(map);
+
+        System.out.println("Student 101: " + map.get(101));
+    }
+}
