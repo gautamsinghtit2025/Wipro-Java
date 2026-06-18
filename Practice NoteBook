@@ -1,1 +1,87 @@
-Practice
+import java.util.ArrayList;
+import java.util.Vector;
+import java.util.LinkedList;
+/*
+collection of framework
+
+1. list -> 1.1 -: ArarayList , 1.2-: LinkedList , 1.3 Vector
+2. set  -> 1.1 -: HashSet  , 1.2 -: LinkedHashSet , TreeSet
+3. queue -> 1.1 -: PriorityQueue
+4. map  ->  4.1 HashMap  , 4.2 -: LinkedHashSet , TreeMap
+
+*/
+class Codechef
+{
+    // 1.1 -: ArrayList
+    // ordered wise
+    // duplicate Value accept
+    /*
+                      ArrayList  LinkedList               Vector
+  Data strucure        Dynamic     Doubly Linked List      Dynamic
+  access index          O(1)         O(n)slow               O(1)
+  thread safe           No             No                   yes      
+  memory use            less          More(link extra)      less
+    */
+public static void main (String[] args)
+{
+ArrayList<Integer> list =  new ArrayList<>();
+list.add(1);
+list.add(2);
+list.add(3);
+list.add(4);
+System.out.println(list);
+System.out.println("-------------");
+         System.out.println(list.get(3));
+         System.out.println("-------------");
+         for(int i=0 ;i<list.size();i++){
+             System.out.println(list.get(i));
+         }
+         System.out.println("-------------");
+         System.out.println(list.contains(2));
+         System.out.println("-------------");
+         System.out.println(list.remove(3));
+         System.out.println("-------------");
+         for(int i=0 ;i<list.size();i++){
+             System.out.println(list.get(i));
+         }
+          System.out.println("-------------");
+          System.out.println(list.isEmpty());
+          System.out.println("-------------");
+        //   synchronized
+        Vector<Integer> list1 = new Vector<>();
+         list1.add(1);
+list1.add(2);
+list1.add(3);
+list1.add(4);
+          System.out.println(list1.firstElement());
+           System.out.println(list1.lastElement());
+           System.out.println(list1.capacity());
+           
+         LinkedList<Integer> list3 = new LinkedList<>();
+         list3.add(1);
+list3.add(2);
+list3.add(3);
+list3.add(4);
+System.out.println(list3);
+
+// list3.clear();
+System.out.println(list3);
+        /*
+        | Interface | Class      | Example                     |
+| --------- | ---------- | --------------------------- |
+| List      | ArrayList  | Ordered, duplicates allowed |
+| List      | LinkedList | Ordered, duplicates allowed |
+| Set       | HashSet    | No duplicates               |
+| Set       | TreeSet    | Sorted, no duplicates       |
+| Map       | HashMap    | Key-value pairs             |
+
+       
+ // 1. queue
+   
+        */
+        list3.offer(30);
+        list3.offer(90);
+        System.out.println(list3.poll());
+        System.out.println(list3);
+}
+}
