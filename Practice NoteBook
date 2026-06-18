@@ -85,3 +85,67 @@ System.out.println(list3);
         System.out.println(list3);
 }
 }
+
+
+-----------------------------------------------------------------
+# Booking Ticket
+import java.util.Vector;
+
+class Booking extends Thread {
+
+    Vector<String> seats;
+    String requestedSeat;
+
+    Booking(Vector<String> seats, String requestedSeat) {
+        this.seats = seats;
+        this.requestedSeat = requestedSeat;
+    }
+
+    public void run() {
+
+        synchronized (seats) {
+
+            if (seats.contains(requestedSeat)) {
+                System.out.println(
+                    Thread.currentThread().getName()
+                    + " booked "
+                    + requestedSeat
+                );
+                 seats.remove(requestedSeat);
+
+            } else {
+
+                System.out.println(
+                    Thread.currentThread().getName()
+                    + " FAILED. "
+                    + requestedSeat
+                    + " already booked."
+                );
+            }
+        }
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Vector<String> seats = new Vector<>();
+
+        seats.add("Seat1");
+        seats.add("Seat2");
+        seats.add("Seat3");
+        seats.add("Seat4");
+        seats.add("Seat5");
+
+        Booking user1 = new Booking(seats, "Seat1");
+        Booking user2 = new Booking(seats, "Seat1");
+
+        user1.setName("User1");
+        user2.setName("User2");
+
+        user1.start();
+        
+        user2.start();
+    }
+}
