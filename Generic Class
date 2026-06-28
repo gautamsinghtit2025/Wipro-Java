@@ -1,0 +1,284 @@
+Primitive Data Type (fixed Size)
+1 int
+2. float
+4. double
+Not Primitive Data
+1. Array
+2. String 
+
+Wrapper Class
+1.Integer
+2.String
+3. Double 
+4. Float
+-----------------------------
+1. -> Generic Class
+ Generic Class allow to class , interface, and , methods to work with different data type
+ and compile-time safety.
+
+2. why are Generics used?
+
+2.1-: provide type safety
+2.2-: explicit type casting
+2.3-: improve code reusability
+2.4-: error detect compile time
+2.5-: autoboxing
+  
+1. Generic Class
+2. Generic Class with getter & setter
+3. Generic class with two type parameter
+4. Generic Method
+5. Generic Array
+6. Generic Stack
+7. Generic Queue
+8. Generic extends
+
+
+
+
+import java.util.ArrayList;
+import java.util.List;
+class demo{
+    public static void main(String args[]){
+     
+    // with Generic
+     // ArrayList<String> list = new ArrayList<>();
+    //  list.add("Gautam");
+     // list.add("90");
+     // System.out.println(list.get(0));
+   //Without Generic
+    
+   //  List
+    
+    List list  = new ArrayList<>();
+    list.add("Gautam");
+      list.add(90);
+    System.out.println(list);
+
+}
+}
+
+1. Basic Gereric
+---------------------------------------------------
+import java.util.ArrayList;
+import java.util.List;
+class Day1<G>{
+     G Details;
+     Day1(G Details){
+      this.Details = Details; 
+    }
+    
+   public void display(){
+      System.out.println(Details);  
+  }
+    public static void main(String args[]){
+     Day1<String> list1 = new Day1<>("Gautam singh");
+     Day1<Integer> list2 = new Day1<>(442424);
+     list1.display();
+     list2.display();    
+  }
+}
+
+2. Generic Class with getter & setter
+-------------------------------------------------------------
+class Student<T> {
+    private T data;
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public T getData() {
+        return data;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student<String> s = new Student<>();
+        s.setData("Amit");
+
+        System.out.println(s.getData());
+    }
+}
+
+3. Generic class with two type parameter
+---------------------------------------------------------------
+class Pair<K, V> {
+    K key;
+    V value;
+
+    Pair(K key, V value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    void show() {
+        System.out.println(key + " : " + value);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Pair<Integer, String> p = new Pair<>(101, "Rahul");
+        p.show();
+    }
+}
+
+4. Generic Method
+---------------------------------------------------------------
+class Demo {
+
+    public <T> void print(T value) {
+        System.out.println(value);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Demo d = new Demo();
+
+        d.print(100);
+        d.print("Java");
+        d.print(12.5);
+    }
+}
+
+5. Generic Array
+---------------------------------------------------------------
+class PrintArray<T> {
+
+    void display(T[] arr) {
+        for (T i : arr) {
+            System.out.print(i + " ");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Integer[] num = {1,2,3,4};
+        String[] name = {"A","B","C"};
+
+        PrintArray<Integer> p1 = new PrintArray<>();
+        p1.display(num);
+
+        System.out.println();
+
+        PrintArray<String> p2 = new PrintArray<>();
+        p2.display(name);
+    }
+}
+
+6. Generic Stack
+---------------------------------------------------------------
+import java.util.*;
+
+class StackDemo<T> {
+
+    Stack<T> stack = new Stack<>();
+
+    void push(T value) {
+        stack.push(value);
+    }
+
+    T pop() {
+        return stack.pop();
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        StackDemo<String> s = new StackDemo<>();
+
+        s.push("Java");
+        s.push("Python");
+
+        System.out.println(s.pop());
+    }
+}
+
+7.Generic Queue
+---------------------------------------------------------------
+import java.util.*;
+
+class QueueDemo<T> {
+
+    Queue<T> q = new LinkedList<>();
+
+    void add(T value) {
+        q.add(value);
+    }
+
+    void display() {
+        System.out.println(q);
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        QueueDemo<Integer> q = new QueueDemo<>();
+
+        q.add(10);
+        q.add(20);
+        q.add(30);
+
+        q.display();
+    }
+}
+8. Generic extends
+----------------------------------------------------------------
+class Calculator<T extends Number> {
+
+    T num;
+
+    Calculator(T num) {
+        this.num = num;
+    }
+
+    double square() {
+        return num.doubleValue() * num.doubleValue();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Calculator<Integer> c = new Calculator<>(5);
+
+        System.out.println(c.square());
+    }
+}
+
+9. Generic Swap Method
+------------------------------------------------------
+class Swap {
+
+    public static <T> void swap(T[] arr, int i, int j) {
+
+        T temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Integer[] arr = {10,20,30};
+
+        Swap.swap(arr,0,2);
+
+        for(Integer x: arr)
+            System.out.print(x+" ");
+    }
+}
+
+
+ 
