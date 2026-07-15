@@ -153,6 +153,45 @@ java.lang.ArithmeticException: Not Eligible
 throws Keyword
 
 throws declares that a method may throw an exception, leaving handling to the caller.
+------------------------------------------------------------------------------------
+ex-1;
+public class ThrowExample1 {
+
+    static void checkAge(int age) {
+
+        if (age < 18) {
+            throw new Exception("Age must be 18 or above.");
+        }
+
+        System.out.println("Eligible for voting.");
+    }
+
+    public static void main(String[] args) {
+
+        checkAge(20);
+        checkAge(15);
+    }
+}
+ex-2
+
+import java.util.*;
+
+class main{
+    public static void ageChecker(int age)throws Exception{
+        if(age<18){
+            throw new Exception("18 below students not eligible ...");
+        }
+        System.out.println("yes u eligible for voting..");
+    }
+    public static void main (String[] args) {
+     try{
+          ageChecker(3);
+     }catch(Exception e){
+         System.out.println(e.getMessage());
+     }
+    }
+}
+-----------------------------------------------------------------------------------
 
 Example
 
