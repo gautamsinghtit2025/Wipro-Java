@@ -1,0 +1,319 @@
+Java Collections Framework – Part 1: ArrayList (All Important Methods)
+import java.util.*;
+
+public class ArrayListMethodsDemo {
+
+    public static void main(String[] args) {
+
+        // Create ArrayList
+        ArrayList<String> list = new ArrayList<>();
+
+        // 1. add()
+        list.add("Java");
+        list.add("Python");
+        list.add("C++");
+        System.out.println("1. add() : " + list);
+
+        // 2. add(index, element)
+        list.add(1, "Spring");
+        System.out.println("2. add(index, element) : " + list);
+
+        // 3. addAll()
+        ArrayList<String> list2 = new ArrayList<>();
+        list2.add("HTML");
+        list2.add("CSS");
+
+        list.addAll(list2);
+        System.out.println("3. addAll() : " + list);
+
+        // 4. get()
+        System.out.println("4. get(2) : " + list.get(2));
+
+        // 5. set()
+        list.set(2, "JavaScript");
+        System.out.println("5. set() : " + list);
+
+        // 6. remove(index)
+        list.remove(3);
+        System.out.println("6. remove(index) : " + list);
+
+        // 7. remove(object)
+        list.remove("HTML");
+        System.out.println("7. remove(object) : " + list);
+
+        // 8. removeAll()
+        ArrayList<String> removeList = new ArrayList<>();
+        removeList.add("CSS");
+
+        list.removeAll(removeList);
+        System.out.println("8. removeAll() : " + list);
+
+        // 9. retainAll()
+        ArrayList<String> retainList = new ArrayList<>();
+        retainList.add("Java");
+        retainList.add("Spring");
+
+        list.retainAll(retainList);
+        System.out.println("9. retainAll() : " + list);
+
+        // Add more elements
+        list.add("Python");
+        list.add("Java");
+        list.add("C++");
+
+        System.out.println("Updated List : " + list);
+
+        // 10. contains()
+        System.out.println("10. contains(Java) : " + list.contains("Java"));
+
+        // 11. containsAll()
+        ArrayList<String> check = new ArrayList<>();
+        check.add("Java");
+        check.add("Python");
+
+        System.out.println("11. containsAll() : " + list.containsAll(check));
+
+        // 12. indexOf()
+        System.out.println("12. indexOf(Java) : " + list.indexOf("Java"));
+
+        // 13. lastIndexOf()
+        System.out.println("13. lastIndexOf(Java) : " + list.lastIndexOf("Java"));
+
+        // 14. size()
+        System.out.println("14. size() : " + list.size());
+
+        // 15. isEmpty()
+        System.out.println("15. isEmpty() : " + list.isEmpty());
+
+        // 16. iterator()
+        System.out.print("16. iterator() : ");
+        Iterator<String> itr = list.iterator();
+
+        while (itr.hasNext()) {
+            System.out.print(itr.next() + " ");
+        }
+        System.out.println();
+
+        // 17. listIterator()
+        System.out.print("17. listIterator() : ");
+        ListIterator<String> litr = list.listIterator();
+
+        while (litr.hasNext()) {
+            System.out.print(litr.next() + " ");
+        }
+        System.out.println();
+
+        // 18. subList()
+        System.out.println("18. subList(1,3) : " + list.subList(1, 3));
+
+        // 19. toArray()
+        Object[] arr = list.toArray();
+
+        System.out.print("19. toArray() : ");
+        for (Object obj : arr) {
+            System.out.print(obj + " ");
+        }
+        System.out.println();
+
+        // 20. sort()
+        Collections.sort(list);
+        System.out.println("20. sort() : " + list);
+
+        // 21. replaceAll()
+        list.replaceAll(str -> str.toUpperCase());
+        System.out.println("21. replaceAll() : " + list);
+
+        // 22. clear()
+        list.clear();
+        System.out.println("22. clear() : " + list);
+
+        // 23. isEmpty() after clear
+        System.out.println("23. isEmpty() : " + list.isEmpty());
+    }
+}
+Expected Output (approx.)
+1. add() : [Java, Python, C++]
+2. add(index, element) : [Java, Spring, Python, C++]
+3. addAll() : [Java, Spring, Python, C++, HTML, CSS]
+4. get(2) : Python
+5. set() : [Java, Spring, JavaScript, C++, HTML, CSS]
+6. remove(index) : [Java, Spring, JavaScript, HTML, CSS]
+7. remove(object) : [Java, Spring, JavaScript, CSS]
+8. removeAll() : [Java, Spring, JavaScript]
+9. retainAll() : [Java, Spring]
+Updated List : [Java, Spring, Python, Java, C++]
+10. contains(Java) : true
+11. containsAll() : true
+12. indexOf(Java) : 0
+13. lastIndexOf(Java) : 3
+14. size() : 5
+15. isEmpty() : false
+16. iterator() : Java Spring Python Java C++
+17. listIterator() : Java Spring Python Java C++
+18. subList(1,3) : [Spring, Python]
+19. toArray() : Java Spring Python Java C++
+20. sort() : [C++, Java, Java, Python, Spring]
+21. replaceAll() : [C++, JAVA, JAVA, PYTHON, SPRING]
+22. clear() : []
+23. isEmpty() : true
+
+This single program demonstrates nearly all commonly used ArrayList methods. The next part would cover LinkedList and Deque with methods such as addFirst(), addLast(), offerFirst(), peekFirst(), removeLast(), pollFirst(), push(), pop(), and more.
+
+2
+Java Collections Framework – Part 2: LinkedList & Deque (All Important Methods)
+import java.util.*;
+
+public class LinkedListDemo {
+
+    public static void main(String[] args) {
+
+        LinkedList<String> list = new LinkedList<>();
+
+        // 1. add()
+        list.add("Java");
+        list.add("Python");
+        list.add("C++");
+        System.out.println("1. add() : " + list);
+
+        // 2. addFirst()
+        list.addFirst("HTML");
+        System.out.println("2. addFirst() : " + list);
+
+        // 3. addLast()
+        list.addLast("Spring");
+        System.out.println("3. addLast() : " + list);
+
+        // 4. offer()
+        list.offer("React");
+        System.out.println("4. offer() : " + list);
+
+        // 5. offerFirst()
+        list.offerFirst("CSS");
+        System.out.println("5. offerFirst() : " + list);
+
+        // 6. offerLast()
+        list.offerLast("Angular");
+        System.out.println("6. offerLast() : " + list);
+
+        // 7. getFirst()
+        System.out.println("7. getFirst() : " + list.getFirst());
+
+        // 8. getLast()
+        System.out.println("8. getLast() : " + list.getLast());
+
+        // 9. peek()
+        System.out.println("9. peek() : " + list.peek());
+
+        // 10. peekFirst()
+        System.out.println("10. peekFirst() : " + list.peekFirst());
+
+        // 11. peekLast()
+        System.out.println("11. peekLast() : " + list.peekLast());
+
+        // 12. element()
+        System.out.println("12. element() : " + list.element());
+
+        // 13. remove()
+        list.remove();
+        System.out.println("13. remove() : " + list);
+
+        // 14. removeFirst()
+        list.removeFirst();
+        System.out.println("14. removeFirst() : " + list);
+
+        // 15. removeLast()
+        list.removeLast();
+        System.out.println("15. removeLast() : " + list);
+
+        // 16. poll()
+        System.out.println("16. poll() : " + list.poll());
+        System.out.println(list);
+
+        // 17. pollFirst()
+        System.out.println("17. pollFirst() : " + list.pollFirst());
+        System.out.println(list);
+
+        // 18. pollLast()
+        System.out.println("18. pollLast() : " + list.pollLast());
+        System.out.println(list);
+
+        // Add data again
+        list.add("Java");
+        list.add("Python");
+        list.add("C++");
+
+        // 19. push()
+        list.push("Stack");
+        System.out.println("19. push() : " + list);
+
+        // 20. pop()
+        System.out.println("20. pop() : " + list.pop());
+        System.out.println(list);
+
+        // 21. contains()
+        System.out.println("21. contains(Java) : " + list.contains("Java"));
+
+        // 22. size()
+        System.out.println("22. size() : " + list.size());
+
+        // 23. isEmpty()
+        System.out.println("23. isEmpty() : " + list.isEmpty());
+
+        // 24. iterator()
+        System.out.print("24. iterator() : ");
+        Iterator<String> itr = list.iterator();
+
+        while (itr.hasNext()) {
+            System.out.print(itr.next() + " ");
+        }
+        System.out.println();
+
+        // 25. descendingIterator()
+        System.out.print("25. descendingIterator() : ");
+        Iterator<String> ditr = list.descendingIterator();
+
+        while (ditr.hasNext()) {
+            System.out.print(ditr.next() + " ");
+        }
+        System.out.println();
+
+        // 26. clear()
+        list.clear();
+        System.out.println("26. clear() : " + list);
+
+        // 27. isEmpty()
+        System.out.println("27. isEmpty() : " + list.isEmpty());
+    }
+}
+Expected Output (approx.)
+1. add() : [Java, Python, C++]
+2. addFirst() : [HTML, Java, Python, C++]
+3. addLast() : [HTML, Java, Python, C++, Spring]
+4. offer() : [HTML, Java, Python, C++, Spring, React]
+5. offerFirst() : [CSS, HTML, Java, Python, C++, Spring, React]
+6. offerLast() : [CSS, HTML, Java, Python, C++, Spring, React, Angular]
+7. getFirst() : CSS
+8. getLast() : Angular
+9. peek() : CSS
+10. peekFirst() : CSS
+11. peekLast() : Angular
+12. element() : CSS
+13. remove() : [HTML, Java, Python, C++, Spring, React, Angular]
+14. removeFirst() : [Java, Python, C++, Spring, React, Angular]
+15. removeLast() : [Java, Python, C++, Spring, React]
+16. poll() : Java
+[Python, C++, Spring, React]
+17. pollFirst() : Python
+[C++, Spring, React]
+18. pollLast() : React
+[C++, Spring]
+19. push() : [Stack, C++, Spring, Java, Python, C++]
+20. pop() : Stack
+[C++, Spring, Java, Python, C++]
+21. contains(Java) : true
+22. size() : 5
+23. isEmpty() : false
+24. iterator() : C++ Spring Java Python C++
+25. descendingIterator() : C++ Python Java Spring C++
+26. clear() : []
+27. isEmpty() : true
