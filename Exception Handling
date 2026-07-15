@@ -1,0 +1,193 @@
+Java Exception Handling (Complete Notes)
+
+Exception handling in Java lets you deal with runtime errors so your program can continue running or fail gracefully.
+
+What is an Exception?
+
+An exception is an event that interrupts the normal flow of a program.
+
+Example:
+
+int a = 10;
+int b = 0;
+
+System.out.println(a / b);
+
+Output
+
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+Types of Exceptions
+1. Checked Exception (Compile-Time)
+
+These must be handled using try-catch or declared with throws.
+
+Examples:
+
+IOException
+SQLException
+ClassNotFoundException
+FileNotFoundException
+FileReader fr = new FileReader("abc.txt");
+
+Compile-time error unless handled.
+
+2. Unchecked Exception (Runtime)
+
+Handled optionally.
+
+Examples:
+
+ArithmeticException
+NullPointerException
+ArrayIndexOutOfBoundsException
+NumberFormatException
+int a = 10 / 0;
+Exception Hierarchy
+Object
+   |
+Throwable
+   |
+-------------------------
+|                       |
+Error               Exception
+                        |
+        -------------------------
+        |                       |
+Checked Exception      RuntimeException
+                                |
+             -----------------------------
+             |             |             |
+ArithmeticException NullPointerException ...
+try-catch
+public class Demo {
+
+    public static void main(String[] args) {
+
+        try {
+            int x = 10 / 0;
+            System.out.println(x);
+        }
+        catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero");
+        }
+
+        System.out.println("Program continues...");
+    }
+}
+
+Output
+
+Cannot divide by zero
+Program continues...
+Multiple catch
+try {
+
+    int arr[] = {1,2,3};
+
+    System.out.println(arr[5]);
+
+}
+catch (ArithmeticException e) {
+    System.out.println("Arithmetic Exception");
+}
+catch (ArrayIndexOutOfBoundsException e) {
+    System.out.println("Array Exception");
+}
+catch (Exception e) {
+    System.out.println("Parent Exception");
+}
+finally
+
+finally always executes whether an exception occurs or not.
+
+try {
+
+    System.out.println(10/2);
+
+}
+catch(Exception e){
+
+    System.out.println(e);
+
+}
+finally{
+
+    System.out.println("Finally Block");
+
+}
+
+Output
+
+5
+Finally Block
+throw Keyword
+
+throw is used to explicitly throw an exception.
+
+Syntax
+
+throw new ExceptionType("Message");
+
+Example
+
+public class Demo {
+
+    public static void main(String[] args) {
+
+        int age = 15;
+
+        if(age < 18){
+
+            throw new ArithmeticException("Not Eligible");
+
+        }
+
+        System.out.println("Eligible");
+    }
+}
+
+Output
+
+Exception in thread "main"
+java.lang.ArithmeticException: Not Eligible
+throws Keyword
+
+throws declares that a method may throw an exception, leaving handling to the caller.
+
+Example
+
+import java.io.IOException;
+
+public class Demo {
+
+    static void display() throws IOException {
+
+        throw new IOException("File Error");
+
+    }
+
+    public static void main(String[] args) {
+
+        try {
+
+            display();
+
+        }
+        catch(IOException e){
+
+            System.out.println(e.getMessage());
+
+        }
+
+    }
+}
+
+Output
+
+File Error
+Difference Between throw and throws
+throw	throws
+Used inside a method	Used in the method declaration
+Throws one exception object	Declares one or more exceptions
+Followed by new	Followed by exception class names
+Used to create an exception	Used to pass exception handling responsibility to the caller
