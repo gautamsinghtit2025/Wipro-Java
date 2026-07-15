@@ -1,0 +1,40 @@
+Without Lambda
+interface Hello {
+
+    void sayHello();
+}
+
+class Demo implements Hello {
+
+    public void sayHello() {
+
+        System.out.println("Hello Java");
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Hello h = new Demo();
+
+        h.sayHello();
+    }
+}
+
+With Lambda Expression
+Lambda Expression एक ऐसा Anonymous Function है जो Functional Interface के Method को कम Code में Implement करता है।
+interface Hello {
+
+    void sayHello();
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Hello h = () -> System.out.println("Hello Java");
+
+        h.sayHello();
+    }
+}
